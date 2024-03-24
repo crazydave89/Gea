@@ -207,6 +207,7 @@ public class MainController {
     @GetMapping("/wygrodzeniaIbramki")
     public String showWygrodzeniaIbramki(Model model){
         model.addAttribute("bramki3rurowe", new Bramki3rurowe());
+        model.addAttribute("bramki2rurowe", new Bramki2rurowe());
         return "wygrodzeniaIbramki";
     }
 
@@ -227,6 +228,30 @@ public class MainController {
             int iloscZestawowLaczacychDropOver = bramki3rurowe.getIloscZestawowLaczacychDropOver();
             int iloscKolWsporczychDoBram = bramki3rurowe.getIloscKolWsporczychDoBram();
             int iloscOdciagowLiniowych = bramki3rurowe.getIloscOdciagowLiniowych();
+
+            //TODO logika
+
+            return "redirect:/podsumowanie"; // Przekieruj użytkownika do strony po pomyślnym przesłaniu formularza
+        }
+    }
+
+    @PostMapping("/submitBramki2rurowe")
+    public String submitBramki2rurowe(@ModelAttribute("bramki2rurowe") Bramki2rurowe bramki2rurowe, BindingResult bindingResult) {
+        // Odczytaj dane z obiektu FormData
+        if (bindingResult.hasErrors()) {
+            return "stronaGlowna";
+        } else {
+            String modelBram = bramki2rurowe.getModelBram();
+            int iloscBram = bramki2rurowe.getIloscBram();
+            String rodzajSlupkow = bramki2rurowe.getRodzajSlupkow();
+            int iloscSlupkow = bramki2rurowe.getIloscSlupkow();
+            String rodzajZamka = bramki2rurowe.getRodzajZamka();
+            int iloscPunktowZamkniecia = bramki2rurowe.getIloscPunktowZamkniecia();
+            int iloscPunktowZamknieciaNaStolePasz = bramki2rurowe.getIloscPunktowZamknieciaNaStolePasz();
+            int iloscZaczepowSciennychHaczyk = bramki2rurowe.getIloscZaczepowSciennychHaczyk();
+            int iloscZestawowLaczacychDropOver = bramki2rurowe.getIloscZestawowLaczacychDropOver();
+            int iloscKolWsporczychDoBram = bramki2rurowe.getIloscKolWsporczychDoBram();
+            int iloscOdciagowLiniowych = bramki2rurowe.getIloscOdciagowLiniowych();
 
             //TODO logika
 
