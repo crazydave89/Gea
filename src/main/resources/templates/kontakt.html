@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakty</title>
+  <style>
+    body {
+      background-color: #ffffff; /* Biały kolor tła */
+      color: #0500B2; /* Kolor tekstu */
+      font-family: Arial, sans-serif; /* Styl czcionki */
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0500B2; /* Kolor tła nagłówka */
+      color: white; /* Kolor tekstu w nagłówku */
+      text-align: center;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center; /* Wyśrodkowanie w poziomie */
+      align-items: center;
+    }
+    header a {
+      text-decoration: none;
+      color: white;
+      background-color: #0500B2; /* Kolor tła przycisku */
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+    .contact-section {
+      padding: 10px 0; /* Zmniejszone paddingi górne i dolne o połowę */
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .person {
+      margin-bottom: 30px;
+    }
+    .person p {
+      margin: 5px 0;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0500B2; /* Kolor tła stopki */
+      padding: 10px 0;
+      text-align: center;
+    }
+    footer button {
+      color: white; /* Kolor tekstu guzika */
+      background-color: #0500B2; /* Kolor tła guzika */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation: pulse 2s infinite alternate; /* Dodanie animacji pulsacji */
+      transition: color 0.3s; /* Dodanie płynnej zmiany koloru tekstu */
+    }
+    footer button:hover {
+      color: #15ef61; /* Zmiana koloru tekstu po najechaniu kursorem */
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="margin: 0 auto;">KONTAKT</h1>
+  </header>
+
+  <section class="contact-section">
+    <div class="container">
+      <h2>Director Sales</h2>
+      <div class="person">
+        <h3>John Doe</h3>
+        <p>Email: john.doe@example.com</p>
+        <p>Telefon: +1234567890</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" style="background-color: #f2f2f2;"> <!-- Tło dla odmiany kolorystycznej -->
+    <div class="container">
+      <h2>Sales Engineer</h2>
+      <div class="person">
+        <h3>Jane Smith</h3>
+        <p>Email: jane.smith@example.com</p>
+        <p>Telefon: +1987654321</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <h2>Sales Support</h2>
+      <div class="person">
+        <h3>Mark Johnson</h3>
+        <p>Email: mark.johnson@example.com</p>
+        <p>Telefon: +1122334455</p>
+      </div>
+      <div class="person">
+        <h3>Amy Wilson</h3>
+        <p>Email: amy.wilson@example.com</p>
+        <p>Telefon: +9988776655</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <form th:action="@{/gea}" method="get">
+      <button type="submit">Powrót do Strony Głównej</button>
+    </form>
+  </footer>
+</body>
+</html>

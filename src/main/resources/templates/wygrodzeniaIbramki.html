@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pl">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowa strona</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Ustawienie czcionki dla całej strony */
+            margin: 0;
+            padding: 0;
+            background-color: hsl(66, 69%, 77%);
+            padding-bottom: 100px;
+        }
+       
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(5, 0, 178, 0.5);
+}
+
+label {
+    font-weight: bold;
+    line-height: 140%;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #0500B2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+        .header-bar {
+            background-color: #000F41;
+            height: 20px; /* Wysokość paska nagłówka */
+            width: 100%;
+        }
+        .menu-bar {
+            background-color: #ffffff; /* Zmiana tła menu na białe */
+            color: #0303B8; /* Zmiana koloru tekstu na #0303B8 */
+            padding: 10px 0;
+            text-align: center;
+        }
+        .menu-item {
+            display: inline-block;
+            margin: 0 10px; /* Zwiększenie marginesu między przyciskami */
+            font-size: 16px;
+            font-weight: bold; /* Pogrubienie tekstu */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 10px 15px; /* Dodanie większych paddingów */
+            color: #0303B8; /* Zmiana koloru tekstu przycisków */
+        }
+        .menu-item:hover {
+            color: #ffcc00; /* Kolor tekstu po najechaniu myszką */
+        }
+        .header {
+            background-color: #004165;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative; /* Dodanie pozycji względnej dla nagłówka */
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .title {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+        .subtitle {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .secondary-header-bar {
+            background-color: #000F41; /* Tło paska */
+            height: 10px; /* Wysokość paska */
+            width: 100%;
+        }
+        .welcome-text {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+        .logo-img {
+            position: absolute; /* Pozycja bezwzględna wewnątrz nagłówka */
+            top: 32px; /* Odległość od góry */
+            left: 15px; /* Odległość od lewej krawędzi */
+            width: 30px; /* Szerokość obrazka */
+            height: 30px; /* Wysokość obrazka */
+            cursor: pointer; /* Zmiana kursora na wskazujący */
+        }
+        .forms-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+.picked-menu-item{
+    color: hsl(66, 69%, 77%);
+}
+footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0500B2; /* Kolor tła stopki */
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    footer button {
+      color: white; /* Kolor tekstu guzika */
+      background-color: #0500B2; /* Kolor tła guzika */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation: pulse 2s infinite alternate; /* Dodanie animacji pulsacji */
+      transition: color 0.3s; /* Dodanie płynnej zmiany koloru tekstu */
+    }
+    footer button:hover {
+      color: #15ef61; /* Zmiana koloru tekstu po najechaniu kursorem */
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    </style>
+</head>
+<header>
+    <div class="header-bar"></div>
+    <div class="menu-bar">
+        <a th:href="@{legowiska}" class="menu-item">Legowiska</a>
+        <a th:href="@{stolyIpoidla}" class="menu-item">Stół paszowy i poidła</a>
+        <a th:href="@{#}" class="menu-item picked-menu-item">Wygrodzenia i bramki</a>
+        <a th:href="@{#}" class="menu-item">Zagospodarowanie gnojowicy</a>
+        <a th:href="@{#}" class="menu-item">Dobrostan w oborze</a>
+        <a th:href="@{podsumowanie}" class="menu-item">Podsumowanie</a>
+    </div>
+    <div class="secondary-header-bar"></div> <!-- Dodanie paska pod menu -->
+    <a th:href="@{konfigurator}"> <!-- Odnośnik do pliku StronaGlowna.html -->
+        <img src="rewind.webp" alt="Rewind" class="logo-img"> <!-- Dodanie obrazka w lewym górnym rogu -->
+    </a>
+</header>
+<body>
+    <div class="forms-container">
+        <form action="#" method="post">
+            <h1>Bramki 3 rurowe</h1>
+    
+            <label for="type">Model bram:</label><br>
+            <select id="type" name="type">
+                <option value="option1">rozsuwana H32S1: L=200-300cm H=90cm</option>
+                <option value="option2">rozsuwana H33S2: L=300-500cm H=90cm</option>
+                <option value="option3">rozsuwana H35S2: L=500-700cm H=90cm</option>
+                <option value="option4">rozsuwana H36S2: L=600-800cm H=90cm</option>
+                <option value="option5">stała H31: L=80cm H=90cm</option>
+                <option value="option6">stała H31: L=180cm H=90cm</option>
+                <option value="option7">stała H31: L=280cm H=90cm</option>
+                <option value="option8">stała H31: L=380cm H=90cm</option>
+                <option value="option9">stała H31: L=480cm H=90cm</option>
+                <option value="option10">stała H31: L=580cm H=90cm</option>
+            </select><br>
+    
+            <label for="numBeds">Ilość bram:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <label for="type">Rodzaj słupków:</label><br>
+            <select id="type" name="type">
+                <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv</option>
+                <option value="option2">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=160cm</option>
+                <option value="option3">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=225cm</option>
+                <option value="option4">Słupek na posadzkę z podst. 3" (89x4.1mm) L=225cm</option>
+                <option value="option5">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=160cm</option>
+                <option value="option6">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=225cm</option>
+                <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4.1mm) L=225cm</option>
+            </select><br>
+    
+            <label for="numBeds">Ilość słupków:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+            
+            <label for="type">Rodzaj zamka:</label><br>
+            <select id="type" name="type">
+                <option value="option1">Zamknięcie do bramek - 2 otwory</option>
+                <option value="option2">Zamknięcie do bramek - 4 otwory</option>
+            </select><br>
+    
+            <label for="numBeds">Ilość punktów zamknięcia:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+           
+            <label for="numBeds">Ilość punktów zamknięcia na stole pasz:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <label for="numBeds">Ilość zaczepów ściennych (haczyk):</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <label for="numBeds">Ilość zestawów łączących drop-over:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <label for="numBeds">Ilość kół wsporczych do bram:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <label for="numBeds">Ilość odciągów linowych:</label><br>
+            <input type="number" id="numBeds" name="numBeds" required><br>
+    
+            <input type="submit" value="Dodaj do podsumowania">
+        </form>
+    <form action="#" method="post">
+        <h1>Bramki 2 rurowe</h1>
+
+        <label for="type">Model bram:</label><br>
+        <select id="type" name="type">
+            <option value="option1">rozsuwana H22S1: L=200-300cm H=60cm</option>
+            <option value="option2">rozsuwana H23S2: L=300-450cm H=60cm</option>
+            <option value="option3">rozsuwana H24S2: L=400-550cm H=60cm</option>
+            <option value="option4">rozsuwana H25S2: L=550-650cm H=60cm</option>
+            <option value="option5">stała H21: L=80cm H=60cm</option>
+            <option value="option6">stała H22: L=180cm H=60cm</option>
+            <option value="option7">stała H23: L=280cm H=60cm</option>
+            <option value="option8">stała H24: L=380cm H=60cm</option>
+            <option value="option9">stała H25: L=480cm H=60cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="type">Rodzaj słupków:</label><br>
+        <select id="type" name="type">
+            <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv</option>
+            <option value="option2">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option3">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option4">Słupek na posadzkę z podst. 3" (89x4.1mm) L=225cm</option>
+            <option value="option5">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option6">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4.1mm) L=225cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość słupków:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+        
+        <label for="type">Rodzaj zamka:</label><br>
+        <select id="type" name="type">
+            <option value="option1">Zamknięcie do bramek - 2 otwory</option>
+            <option value="option2">Zamknięcie do bramek - 4 otwory</option>
+        </select><br>
+
+        <label for="numBeds">Ilość punktów zamknięcia:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+       
+        <label for="numBeds">Ilość punktów zamknięcia na stole pasz:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość zaczepów ściennych (haczyk):</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość zestawów łączących drop-over:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość kół wsporczych do bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość odciągów linowych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+
+    </form>
+  </div>
+  <div class="forms-container">
+    <form action="#" method="post">
+        <h1>Bramki one way</h1>
+
+        <label for="type">Montaż bramki grzebieniowej:</label><br>
+        <select id="type" name="type">
+            <option value="option1">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
+            <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option3">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option4">Słupek na posadzkę rusztową z podst. 3" (89x4,1mm) 225cm</option>
+            <option value="option5">Mocowanie do ściany</option>
+        </select><br>
+
+        <label for="type">Szerokość przejścia:</label><br>
+        <select id="type" name="type">
+            <option value="option1">przejście: 100 - 130 cm</option>
+            <option value="option2">przejście: 230 - 255 cm</option>
+            <option value="option3">przejście: 355 - 378 cm</option>
+            <option value="option4">przejście: 478 - 505 cm</option>
+            <option value="option5">przejście: 605 - 630 cm</option>
+            <option value="option6">przejście: 655 - 678 cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość elementów stałych "U":</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <label for="numBeds">Ilość bramek One Way 110cm (na ścianę):</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+       
+        <label for="numBeds">Ilość rozsuwanych bramek OW 90-155cm:</label><br>
+        <input type="number" id="numBeds" name="numBeds" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+    </form>
+
+    <form action="#" method="post">
+      <h1>Wygrodzenia rurowe - stałe</h1>
+
+      <label for="numBeds">Ilość MB wygrodzenia stałego:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość rur:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="type">Rodzaj słupków:</label><br>
+      <select id="type" name="type">
+          <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv.</option>
+          <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
+          <option value="option3">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
+          <option value="option4">Słupek na posadzkę z podst. 3" (89x4,1mm) 225cm</option>
+          <option value="option5">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 160cm</option>
+          <option value="option6">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 225cm</option>
+          <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4,1mm) 225cm</option>
+      </select><br>
+
+      <label for="numBeds">Ilość słupków:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość słupków narożnych:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość słupków środkowych:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość słupków skrajnych:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość zakończeń do muru:</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <label for="numBeds">Ilość łączników rury 2":</label><br>
+      <input type="number" id="numBeds" name="numBeds" required><br>
+
+      <input type="submit" value="Dodaj do podsumowania">
+  </form>
+</div>
+</body>
+<footer>
+        <button onclick="location.href='#'" style="font-size: 20px;">Specyfikacja</button>
+</footer>
+</html>
