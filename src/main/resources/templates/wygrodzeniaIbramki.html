@@ -332,17 +332,17 @@ footer {
         <input type="submit" value="Dodaj do podsumowania">
     </form>
 
-    <form action="#" method="post">
+    <form th:action="@{/submitWygrodzeniaRuroweStale}" th:object="${wygrodzeniaRuroweStale}" method="post">
       <h1>Wygrodzenia rurowe - stałe</h1>
 
       <label for="numBeds">Ilość MB wygrodzenia stałego:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscMBwygrodzeniaStalego}" required><br>
 
       <label for="numBeds">Ilość rur:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscRur}" required><br>
 
       <label for="type">Rodzaj słupków:</label><br>
-      <select id="type" name="type">
+      <select id="type" name="type" th:field="*{rodzajSlupkow}">
           <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv.</option>
           <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
           <option value="option3">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
@@ -353,22 +353,22 @@ footer {
       </select><br>
 
       <label for="numBeds">Ilość słupków:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkow}" required><br>
 
       <label for="numBeds">Ilość słupków narożnych:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowNaroznych}" required><br>
 
       <label for="numBeds">Ilość słupków środkowych:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowSrodkowych}" required><br>
 
       <label for="numBeds">Ilość słupków skrajnych:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowSkrajnych}" required><br>
 
       <label for="numBeds">Ilość zakończeń do muru:</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZakonczenDoMuru}" required><br>
 
       <label for="numBeds">Ilość łączników rury 2":</label><br>
-      <input type="number" id="numBeds" name="numBeds" required><br>
+      <input type="number" id="numBeds" name="numBeds" th:field="*{iloscLacznikowRury2cale}" required><br>
 
       <input type="submit" value="Dodaj do podsumowania">
   </form>

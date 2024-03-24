@@ -209,6 +209,7 @@ public class MainController {
         model.addAttribute("bramki3rurowe", new Bramki3rurowe());
         model.addAttribute("bramki2rurowe", new Bramki2rurowe());
         model.addAttribute("bramkiOneWay", new BramkiOneWay());
+        model.addAttribute("wygrodzeniaRuroweStale", new WygrodzeniaRuroweStale());
         return "wygrodzeniaIbramki";
     }
 
@@ -272,6 +273,28 @@ public class MainController {
             int iloscElementowStalychU = bramkiOneWay.getIloscElementowStalychU();
             int iloscBramekOneWay110NaSciane = bramkiOneWay.getIloscBramekOneWay110NaSciane();
             int iloscRozsuwanychBramekOW90_155 = bramkiOneWay.getIloscRozsuwanychBramekOW90_155();
+
+            //TODO logika
+
+            return "redirect:/podsumowanie"; // Przekieruj użytkownika do strony po pomyślnym przesłaniu formularza
+        }
+    }
+
+    @PostMapping("/submitWygrodzeniaRuroweStale")
+    public String submitWygrodzeniaRuroweStale(@ModelAttribute("wygrodzeniaRuroweStale") WygrodzeniaRuroweStale wygrodzeniaRuroweStale, BindingResult bindingResult) {
+        // Odczytaj dane z obiektu FormData
+        if (bindingResult.hasErrors()) {
+            return "stronaGlowna";
+        } else {
+            int iloscMBwygrodzeniaStalego = wygrodzeniaRuroweStale.getIloscMBwygrodzeniaStalego();
+            int iloscRur = wygrodzeniaRuroweStale.getIloscRur();
+            String rodzajSlupkow = wygrodzeniaRuroweStale.getRodzajSlupkow();
+            int iloscSlupkow = wygrodzeniaRuroweStale.getIloscSlupkow();
+            int iloscSlupkowNaroznych = wygrodzeniaRuroweStale.getIloscSlupkowNaroznych();
+            int iloscSlupkowSrodkowych = wygrodzeniaRuroweStale.getIloscSlupkowSrodkowych();
+            int iloscSlupkowSkrajnych = wygrodzeniaRuroweStale.getIloscSlupkowSkrajnych();
+            int iloscZakonczenDoMuru = wygrodzeniaRuroweStale.getIloscZakonczenDoMuru();
+            int iloscLacznikowRury2cale = wygrodzeniaRuroweStale.getIloscLacznikowRury2cale();
 
             //TODO logika
 
