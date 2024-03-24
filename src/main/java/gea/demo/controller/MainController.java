@@ -206,7 +206,32 @@ public class MainController {
 
     @GetMapping("/wygrodzeniaIbramki")
     public String showWygrodzeniaIbramki(Model model){
+        model.addAttribute("bramki3rurowe", new Bramki3rurowe());
         return "wygrodzeniaIbramki";
+    }
+
+    @PostMapping("/submitBramki3rurowe")
+    public String submitBramki3rurowe(@ModelAttribute("bramki3rurowe") Bramki3rurowe bramki3rurowe, BindingResult bindingResult) {
+        // Odczytaj dane z obiektu FormData
+        if (bindingResult.hasErrors()) {
+            return "stronaGlowna";
+        } else {
+            String modelBram = bramki3rurowe.getModelBram();
+            int iloscBram = bramki3rurowe.getIloscBram();
+            String rodzajSlupkow = bramki3rurowe.getRodzajSlupkow();
+            int iloscSlupkow = bramki3rurowe.getIloscSlupkow();
+            String rodzajZamka = bramki3rurowe.getRodzajZamka();
+            int iloscPunktowZamkniecia = bramki3rurowe.getIloscPunktowZamkniecia();
+            int iloscPunktowZamknieciaNaStolePasz = bramki3rurowe.getIloscPunktowZamknieciaNaStolePasz();
+            int iloscZaczepowSciennychHaczyk = bramki3rurowe.getIloscZaczepowSciennychHaczyk();
+            int iloscZestawowLaczacychDropOver = bramki3rurowe.getIloscZestawowLaczacychDropOver();
+            int iloscKolWsporczychDoBram = bramki3rurowe.getIloscKolWsporczychDoBram();
+            int iloscOdciagowLiniowych = bramki3rurowe.getIloscOdciagowLiniowych();
+
+            //TODO logika
+
+            return "redirect:/podsumowanie"; // Przekieruj użytkownika do strony po pomyślnym przesłaniu formularza
+        }
     }
 
     @PostMapping("/removeList")

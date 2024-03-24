@@ -173,11 +173,11 @@ footer {
 </header>
 <body>
     <div class="forms-container">
-        <form action="#" method="post">
+        <form th:action="@{/submitBramki3rurowe}" th:object="${bramki3rurowe}" method="post">
             <h1>Bramki 3 rurowe</h1>
     
             <label for="type">Model bram:</label><br>
-            <select id="type" name="type">
+            <select id="type" name="type" th:field="*{modelBram}">
                 <option value="option1">rozsuwana H32S1: L=200-300cm H=90cm</option>
                 <option value="option2">rozsuwana H33S2: L=300-500cm H=90cm</option>
                 <option value="option3">rozsuwana H35S2: L=500-700cm H=90cm</option>
@@ -191,10 +191,10 @@ footer {
             </select><br>
     
             <label for="numBeds">Ilość bram:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBram}" required><br>
     
             <label for="type">Rodzaj słupków:</label><br>
-            <select id="type" name="type">
+            <select id="type" name="type" th:field="*{rodzajSlupkow}">
                 <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv</option>
                 <option value="option2">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=160cm</option>
                 <option value="option3">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=225cm</option>
@@ -205,31 +205,31 @@ footer {
             </select><br>
     
             <label for="numBeds">Ilość słupków:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkow}" required><br>
             
             <label for="type">Rodzaj zamka:</label><br>
-            <select id="type" name="type">
+            <select id="type" name="type" th:field="*{rodzajZamka}">
                 <option value="option1">Zamknięcie do bramek - 2 otwory</option>
                 <option value="option2">Zamknięcie do bramek - 4 otwory</option>
             </select><br>
     
             <label for="numBeds">Ilość punktów zamknięcia:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamkniecia}" required><br>
            
             <label for="numBeds">Ilość punktów zamknięcia na stole pasz:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamknieciaNaStolePasz}" required><br>
     
             <label for="numBeds">Ilość zaczepów ściennych (haczyk):</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZaczepowSciennychHaczyk}" required><br>
     
             <label for="numBeds">Ilość zestawów łączących drop-over:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZestawowLaczacychDropOver}" required><br>
     
             <label for="numBeds">Ilość kół wsporczych do bram:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscKolWsporczychDoBram}" required><br>
     
             <label for="numBeds">Ilość odciągów linowych:</label><br>
-            <input type="number" id="numBeds" name="numBeds" required><br>
+            <input type="number" id="numBeds" name="numBeds" th:field="*{iloscOdciagowLiniowych}" required><br>
     
             <input type="submit" value="Dodaj do podsumowania">
         </form>
