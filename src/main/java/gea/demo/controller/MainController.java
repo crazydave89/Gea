@@ -208,6 +208,7 @@ public class MainController {
     public String showWygrodzeniaIbramki(Model model){
         model.addAttribute("bramki3rurowe", new Bramki3rurowe());
         model.addAttribute("bramki2rurowe", new Bramki2rurowe());
+        model.addAttribute("bramkiOneWay", new BramkiOneWay());
         return "wygrodzeniaIbramki";
     }
 
@@ -252,6 +253,25 @@ public class MainController {
             int iloscZestawowLaczacychDropOver = bramki2rurowe.getIloscZestawowLaczacychDropOver();
             int iloscKolWsporczychDoBram = bramki2rurowe.getIloscKolWsporczychDoBram();
             int iloscOdciagowLiniowych = bramki2rurowe.getIloscOdciagowLiniowych();
+
+            //TODO logika
+
+            return "redirect:/podsumowanie"; // Przekieruj użytkownika do strony po pomyślnym przesłaniu formularza
+        }
+    }
+
+    @PostMapping("/submitBramkiOneWay")
+    public String submitBramkiOneWay(@ModelAttribute("bramkiOneWay") BramkiOneWay bramkiOneWay, BindingResult bindingResult) {
+        // Odczytaj dane z obiektu FormData
+        if (bindingResult.hasErrors()) {
+            return "stronaGlowna";
+        } else {
+            String montażBramkiGrzebieniowej = bramkiOneWay.getMontażBramkiGrzebieniowej();
+            String szerokoscPrzejscia = bramkiOneWay.getSzerokoscPrzejscia();
+            int iloscBram = bramkiOneWay.getIloscBram();
+            int iloscElementowStalychU = bramkiOneWay.getIloscElementowStalychU();
+            int iloscBramekOneWay110NaSciane = bramkiOneWay.getIloscBramekOneWay110NaSciane();
+            int iloscRozsuwanychBramekOW90_155 = bramkiOneWay.getIloscRozsuwanychBramekOW90_155();
 
             //TODO logika
 

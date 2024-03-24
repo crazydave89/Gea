@@ -295,11 +295,11 @@ footer {
     </form>
   </div>
   <div class="forms-container">
-    <form action="#" method="post">
+    <form th:action="@{/submitBramkiOneWay}" th:object="${bramkiOneWay}" method="post">
         <h1>Bramki one way</h1>
 
         <label for="type">Montaż bramki grzebieniowej:</label><br>
-        <select id="type" name="type">
+        <select id="type" name="type" th:field="*{montażBramkiGrzebieniowej}">
             <option value="option1">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
             <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
             <option value="option3">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 225cm</option>
@@ -308,7 +308,7 @@ footer {
         </select><br>
 
         <label for="type">Szerokość przejścia:</label><br>
-        <select id="type" name="type">
+        <select id="type" name="type" th:field="*{szerokoscPrzejscia}">
             <option value="option1">przejście: 100 - 130 cm</option>
             <option value="option2">przejście: 230 - 255 cm</option>
             <option value="option3">przejście: 355 - 378 cm</option>
@@ -318,16 +318,16 @@ footer {
         </select><br>
 
         <label for="numBeds">Ilość bram:</label><br>
-        <input type="number" id="numBeds" name="numBeds" required><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBram}" required><br>
 
         <label for="numBeds">Ilość elementów stałych "U":</label><br>
-        <input type="number" id="numBeds" name="numBeds" required><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscElementowStalychU}" required><br>
 
         <label for="numBeds">Ilość bramek One Way 110cm (na ścianę):</label><br>
-        <input type="number" id="numBeds" name="numBeds" required><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBramekOneWay110NaSciane}" required><br>
        
         <label for="numBeds">Ilość rozsuwanych bramek OW 90-155cm:</label><br>
-        <input type="number" id="numBeds" name="numBeds" required><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscRozsuwanychBramekOW90_155}" required><br>
 
         <input type="submit" value="Dodaj do podsumowania">
     </form>
