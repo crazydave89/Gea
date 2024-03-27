@@ -1,5 +1,8 @@
 var menuLegowiska = document.querySelector('.menu-legowiska');
 var menuStolPaszowyIpoidla = document.querySelector('.menuStolPaszowyIpoidla');
+var menuWygrodzeniaIbramki = document.querySelector('.menuWygrodzeniaIbramki');
+
+
 var content = document.querySelector('.content');
 
 var materaceForm = document.getElementById('materaceForm');
@@ -9,6 +12,12 @@ var stolPaszowyRuraKarkowaForm = document.getElementById('stolPaszowyRuraKarkowa
 var stolPaszowySwistLockForm = document.getElementById('stolPaszowySwistLockForm');
 var stolPaszowyDrabinaDiagonalnaForm = document.getElementById('stolPaszowyDrabinaDiagonalnaForm');
 var poidlaForm = document.getElementById('poidlaForm');
+
+var bramki3ruroweForm = document.getElementById('bramki3ruroweForm');
+var bramki2ruroweForm = document.getElementById('bramki2ruroweForm');
+var bramkiOneWayForm = document.getElementById('bramkiOneWayForm');
+var wygrodzeniaRuroweStaleForm = document.getElementById('wygrodzeniaRuroweStaleForm');
+
 
 function addHiddenClassToAllMenu() {
             var elements = document.querySelectorAll('div.menumenu');
@@ -30,10 +39,8 @@ document.getElementById('option1').addEventListener('click', function() {
 
   if (menuLegowiska.clientHeight === 0) {
     menuLegowiska.style.height = '50px'; // Rozciągnięcie diva do 50px
-    content.style.height = 'calc(100% - 100px)';
   } else {
     menuLegowiska.style.height = '0'; // Zmniejszenie wysokości diva do 0
-    content.style.height = 'calc(100% - 50px)';
   }
 });
 
@@ -43,12 +50,11 @@ document.getElementById('option2').addEventListener('click', function() {
 
   if (menuStolPaszowyIpoidla.clientHeight === 0) {
     menuStolPaszowyIpoidla.style.height = '50px'; // Rozciągnięcie diva do 50px
-    content.style.height = 'calc(100% - 100px)';
   } else {
     menuStolPaszowyIpoidla.style.height = '0'; // Zmniejszenie wysokości diva do 0
-    content.style.height = 'calc(100% - 50px)';
   }
 });
+
 
 document.getElementById('materaceLegowiskowe').addEventListener('click', function() {
   addHiddenClassToAllForms();
@@ -75,3 +81,4 @@ document.getElementById('poidla').addEventListener('click', function() {
   addHiddenClassToAllForms();
   poidlaForm.classList.remove('hidden');
 });
+

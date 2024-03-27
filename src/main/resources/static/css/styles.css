@@ -1,8 +1,9 @@
  body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'Inter', sans-serif;
+    min-height: 900px;
+
 }
 body{
   background-image: url('https://media.istockphoto.com/id/519861662/pl/zdj%C4%99cie/kr%C3%B3w-na-zielony-%C5%82%C4%85ka.jpg?s=612x612&w=0&k=20&c=xYcVWDY4tHBBWfjD1Kk_ad4N_etnh6_JrpktlgV4QIU='); /* URL do przykładowego obrazu online */
@@ -10,7 +11,6 @@ body{
   background-position: center;
 
 }
-
 header {
   width: 100%;
   background-color: #0303B8; /* kolor nagłówka */
@@ -21,9 +21,9 @@ header {
 
 .content {
   width: 100%;
-  height: calc(100% - 50px); /* wysokość całej strony minus wysokość nagłówka */
   color: black;
   text-align: center;
+  height: auto;
 }
  .menu-item {
    display: inline-block;
@@ -40,10 +40,11 @@ header {
  background-color: white;
  opacity: 80%;
  margin: 0 auto;
- padding-bottom: 25px;
+ padding-bottom: 20px;
  padding-top: 1px;
  position: relative; /* or absolute, depending on your layout needs */
  top: 20px; /* Adjust the value as needed */
+ margin-bottom: 100px;
 }
 input[type="text"],
 input[type="number"],
@@ -71,14 +72,14 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #0500B2; /* Kolor tła stopki */
-      text-align: center;
-      padding-top: 10px;
-      padding-bottom: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0500B2; /* Kolor tła stopki */
+    text-align: center;
     }
     footer button {
       color: white; /* Kolor tekstu guzika */

@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="menu-bar">
-        <a id="option1"  class="menu-item picked-menu-item">Legowiska</a>
+        <a id="option1"  class="menu-item">Legowiska</a>
         <a id="option2"  class="menu-item">Stół paszowy i poidła</a>
         <a id="option3"  class="menu-item">Wygrodzenia i bramki</a>
         <a id="option4"  class="menu-item">Zagospodarowanie gnojowicy</a>
@@ -30,6 +30,13 @@
     <a id="stolPaszowySwistLock"  class="menu-item picked-menu-item">Stół paszowy - Twist & Lock</a>
     <a id="stolPaszowyDrabinaDiagonalna"  class="menu-item picked-menu-item">Stół paszowy - Drabina diagonalna</a>
     <a id="poidla"  class="menu-item picked-menu-item">Poidła</a>
+    </div>
+
+    <div class="menuWygrodzeniaIbramki menumenu hidden">
+        <a id="bramki3rurowe"  class="menu-item picked-menu-item">Bramki 3 rurowe</a>
+        <a id="bramki2rurowe"  class="menu-item picked-menu-item">Bramki 2 rurowe</a>
+        <a id="bramkiOneWay"  class="menu-item picked-menu-item">Bramki one way</a>
+        <a id="wygrodzeniaRuroweStale"  class="menu-item picked-menu-item">Wygrodzenia rurowe - stałe</a>
     </div>
 
 </header>
@@ -351,10 +358,212 @@
         <input type="submit" value="Dodaj do podsumowania">
 
     </form>
-    <footer>
-        <button onclick="location.href='#'" >Specyfikacja</button>
-    </footer>
+
+    <form class="hidden myform" id="bramki3ruroweForm" th:action="@{/submitBramki3rurowe}" th:object="${bramki3rurowe}" method="post">
+        <h1>Bramki 3 rurowe</h1>
+
+        <label for="type">Model bram:</label><br>
+        <select id="type" name="type" th:field="*{modelBram}">
+            <option value="option1">rozsuwana H32S1: L=200-300cm H=90cm</option>
+            <option value="option2">rozsuwana H33S2: L=300-500cm H=90cm</option>
+            <option value="option3">rozsuwana H35S2: L=500-700cm H=90cm</option>
+            <option value="option4">rozsuwana H36S2: L=600-800cm H=90cm</option>
+            <option value="option5">stała H31: L=80cm H=90cm</option>
+            <option value="option6">stała H31: L=180cm H=90cm</option>
+            <option value="option7">stała H31: L=280cm H=90cm</option>
+            <option value="option8">stała H31: L=380cm H=90cm</option>
+            <option value="option9">stała H31: L=480cm H=90cm</option>
+            <option value="option10">stała H31: L=580cm H=90cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBram}" required><br>
+
+        <label for="type">Rodzaj słupków:</label><br>
+        <select id="type" name="type" th:field="*{rodzajSlupkow}">
+            <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv</option>
+            <option value="option2">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option3">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option4">Słupek na posadzkę z podst. 3" (89x4.1mm) L=225cm</option>
+            <option value="option5">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option6">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4.1mm) L=225cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość słupków:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkow}" required><br>
+
+        <label for="type">Rodzaj zamka:</label><br>
+        <select id="type" name="type" th:field="*{rodzajZamka}">
+            <option value="option1">Zamknięcie do bramek - 2 otwory</option>
+            <option value="option2">Zamknięcie do bramek - 4 otwory</option>
+        </select><br>
+
+        <label for="numBeds">Ilość punktów zamknięcia:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamkniecia}" required><br>
+
+        <label for="numBeds">Ilość punktów zamknięcia na stole pasz:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamknieciaNaStolePasz}" required><br>
+
+        <label for="numBeds">Ilość zaczepów ściennych (haczyk):</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZaczepowSciennychHaczyk}" required><br>
+
+        <label for="numBeds">Ilość zestawów łączących drop-over:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZestawowLaczacychDropOver}" required><br>
+
+        <label for="numBeds">Ilość kół wsporczych do bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscKolWsporczychDoBram}" required><br>
+
+        <label for="numBeds">Ilość odciągów linowych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscOdciagowLiniowych}" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+    </form>
+    <form class="hidden myform" id="bramki2ruroweForm" th:action="@{/submitBramki2rurowe}" th:object="${bramki2rurowe}" method="post">
+        <h1>Bramki 2 rurowe</h1>
+
+        <label for="type">Model bram:</label><br>
+        <select id="type" name="type" th:field="*{modelBram}">
+            <option value="option1">rozsuwana H22S1: L=200-300cm H=60cm</option>
+            <option value="option2">rozsuwana H23S2: L=300-450cm H=60cm</option>
+            <option value="option3">rozsuwana H24S2: L=400-550cm H=60cm</option>
+            <option value="option4">rozsuwana H25S2: L=550-650cm H=60cm</option>
+            <option value="option5">stała H21: L=80cm H=60cm</option>
+            <option value="option6">stała H22: L=180cm H=60cm</option>
+            <option value="option7">stała H23: L=280cm H=60cm</option>
+            <option value="option8">stała H24: L=380cm H=60cm</option>
+            <option value="option9">stała H25: L=480cm H=60cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBram}" required><br>
+
+        <label for="type">Rodzaj słupków:</label><br>
+        <select id="type" name="type" th:field="*{rodzajSlupkow}">
+            <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv</option>
+            <option value="option2">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option3">Słupek na posadzkę z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option4">Słupek na posadzkę z podst. 3" (89x4.1mm) L=225cm</option>
+            <option value="option5">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=160cm</option>
+            <option value="option6">Słupek na posadzkę rusztową z podst. 2.5" (76x3.7mm) L=225cm</option>
+            <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4.1mm) L=225cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość słupków:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkow}" required><br>
+
+        <label for="type">Rodzaj zamka:</label><br>
+        <select id="type" name="type" th:field="*{rodzajZamka}">
+            <option value="option1">Zamknięcie do bramek - 2 otwory</option>
+            <option value="option2">Zamknięcie do bramek - 4 otwory</option>
+        </select><br>
+
+        <label for="numBeds">Ilość punktów zamknięcia:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamkniecia}" required><br>
+
+        <label for="numBeds">Ilość punktów zamknięcia na stole pasz:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscPunktowZamknieciaNaStolePasz}" required><br>
+
+        <label for="numBeds">Ilość zaczepów ściennych (haczyk):</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZaczepowSciennychHaczyk}" required><br>
+
+        <label for="numBeds">Ilość zestawów łączących drop-over:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZestawowLaczacychDropOver}" required><br>
+
+        <label for="numBeds">Ilość kół wsporczych do bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscKolWsporczychDoBram}" required><br>
+
+        <label for="numBeds">Ilość odciągów linowych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscOdciagowLiniowych}" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+
+    </form>
+    <form class="hidden myform" id="bramkiOneWayForm" th:action="@{/submitBramkiOneWay}" th:object="${bramkiOneWay}" method="post">
+        <h1>Bramki one way</h1>
+
+        <label for="type">Montaż bramki grzebieniowej:</label><br>
+        <select id="type" name="type" th:field="*{montażBramkiGrzebieniowej}">
+            <option value="option1">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
+            <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option3">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option4">Słupek na posadzkę rusztową z podst. 3" (89x4,1mm) 225cm</option>
+            <option value="option5">Mocowanie do ściany</option>
+        </select><br>
+
+        <label for="type">Szerokość przejścia:</label><br>
+        <select id="type" name="type" th:field="*{szerokoscPrzejscia}">
+            <option value="option1">przejście: 100 - 130 cm</option>
+            <option value="option2">przejście: 230 - 255 cm</option>
+            <option value="option3">przejście: 355 - 378 cm</option>
+            <option value="option4">przejście: 478 - 505 cm</option>
+            <option value="option5">przejście: 605 - 630 cm</option>
+            <option value="option6">przejście: 655 - 678 cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość bram:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBram}" required><br>
+
+        <label for="numBeds">Ilość elementów stałych "U":</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscElementowStalychU}" required><br>
+
+        <label for="numBeds">Ilość bramek One Way 110cm (na ścianę):</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscBramekOneWay110NaSciane}" required><br>
+
+        <label for="numBeds">Ilość rozsuwanych bramek OW 90-155cm:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscRozsuwanychBramekOW90_155}" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+    </form>
+    <form class="hidden myform" id="wygrodzeniaRuroweStaleForm" th:action="@{/submitWygrodzeniaRuroweStale}" th:object="${wygrodzeniaRuroweStale}" method="post">
+        <h1>Wygrodzenia rurowe - stałe</h1>
+
+        <label for="numBeds">Ilość MB wygrodzenia stałego:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscMBwygrodzeniaStalego}" required><br>
+
+        <label for="numBeds">Ilość rur:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscRur}" required><br>
+
+        <label for="type">Rodzaj słupków:</label><br>
+        <select id="type" name="type" th:field="*{rodzajSlupkow}">
+            <option value="option1">Słupek w beton z tuleją i kapą 2.5" (76x3.7mm) L=185cm Hgalv.</option>
+            <option value="option2">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 160cm</option>
+            <option value="option3">Słupek na posadzkę z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option4">Słupek na posadzkę z podst. 3" (89x4,1mm) 225cm</option>
+            <option value="option5">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 160cm</option>
+            <option value="option6">Słupek na posadzkę rusztową z podst. 2,5" (76x3,7mm) 225cm</option>
+            <option value="option7">Słupek na posadzkę rusztową z podst. 3" (89x4,1mm) 225cm</option>
+        </select><br>
+
+        <label for="numBeds">Ilość słupków:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkow}" required><br>
+
+        <label for="numBeds">Ilość słupków narożnych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowNaroznych}" required><br>
+
+        <label for="numBeds">Ilość słupków środkowych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowSrodkowych}" required><br>
+
+        <label for="numBeds">Ilość słupków skrajnych:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscSlupkowSkrajnych}" required><br>
+
+        <label for="numBeds">Ilość zakończeń do muru:</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscZakonczenDoMuru}" required><br>
+
+        <label for="numBeds">Ilość łączników rury 2":</label><br>
+        <input type="number" id="numBeds" name="numBeds" th:field="*{iloscLacznikowRury2cale}" required><br>
+
+        <input type="submit" value="Dodaj do podsumowania">
+    </form>
+
 </div>
+
+
 <script src="js\konfigurator.js"></script>
+<script src="js\konfigurator2.js"></script>
 </body>
+<footer>
+    <button onclick="location.href='#'" >Specyfikacja</button>
+</footer>
+
 </html>
