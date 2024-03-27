@@ -33,6 +33,17 @@ public class MainController {
     }
     @GetMapping("/konfigurator")
     public String showKonfigurator(Model model){
+        model.addAttribute("bramki3rurowe", new Bramki3rurowe());
+        model.addAttribute("bramki2rurowe", new Bramki2rurowe());
+        model.addAttribute("bramkiOneWay", new BramkiOneWay());
+        model.addAttribute("wygrodzeniaRuroweStale", new WygrodzeniaRuroweStale());
+        model.addAttribute("wygrodzenia2Doptima", new Wygrodzenia2Doptima());
+        model.addAttribute("materaceLegowiskowe", new MateraceLegowiskowe());
+        model.addAttribute("stolPaszowyRuraKarkowa", new StolPaszowyRuraKarkowa());
+        model.addAttribute("stolPaszowySwistLock", new StolPaszowySwistLock());
+        model.addAttribute("stolPaszowyDrabinaDiagonalna", new StolPaszowyDrabinaDiagonalna());
+        model.addAttribute("poidla", new Poidla());
+
         return "konfigurator";
     }
     @GetMapping("/kontakt")
@@ -44,12 +55,12 @@ public class MainController {
         model.addAttribute("productlistLists", productlistLists);
         return "podsumowanie";
     }
-    @GetMapping("/legowiska")
-    public String showLegowiska(Model model){
-        model.addAttribute("wygrodzenia2Doptima", new Wygrodzenia2Doptima());
-        model.addAttribute("materaceLegowiskowe", new MateraceLegowiskowe());
-        return "legowiska";
-    }
+//    @GetMapping("/legowiska")
+//    public String showLegowiska(Model model){
+//        model.addAttribute("wygrodzenia2Doptima", new Wygrodzenia2Doptima());
+//        model.addAttribute("materaceLegowiskowe", new MateraceLegowiskowe());
+//        return "legowiska";
+//    }
     @PostMapping("/submitWygrodzenia2Doptima")
     public String submitWygrodzenia2Doptima(@ModelAttribute("wygrodzenia2Doptima") Wygrodzenia2Doptima wygrodzenia2Doptima, BindingResult bindingResult) {
         // Odczytaj dane z obiektu FormData
@@ -111,14 +122,14 @@ public class MainController {
     }
 
 
-            @GetMapping("/stolyIpoidla")
-    public String showStolyIpoidla(Model model){
-        model.addAttribute("stolPaszowyRuraKarkowa", new StolPaszowyRuraKarkowa());
-        model.addAttribute("stolPaszowySwistLock", new StolPaszowySwistLock());
-        model.addAttribute("stolPaszowyDrabinaDiagonalna", new StolPaszowyDrabinaDiagonalna());
-        model.addAttribute("poidla", new Poidla());
-        return "stolyIpoidla";
-    }
+//            @GetMapping("/stolyIpoidla")
+//    public String showStolyIpoidla(Model model){
+//        model.addAttribute("stolPaszowyRuraKarkowa", new StolPaszowyRuraKarkowa());
+//        model.addAttribute("stolPaszowySwistLock", new StolPaszowySwistLock());
+//        model.addAttribute("stolPaszowyDrabinaDiagonalna", new StolPaszowyDrabinaDiagonalna());
+//        model.addAttribute("poidla", new Poidla());
+//        return "stolyIpoidla";
+//    }
     @PostMapping("/submitStolPaszowyRuraKarkowa")
     public String submitStolPaszowyRuraKarkowa(@ModelAttribute("stolPaszowyRuraKarkowa") StolPaszowyRuraKarkowa stolPaszowyRuraKarkowa, BindingResult bindingResult) {
         // Odczytaj dane z obiektu FormData
@@ -204,14 +215,14 @@ public class MainController {
         }
     }
 
-    @GetMapping("/wygrodzeniaIbramki")
-    public String showWygrodzeniaIbramki(Model model){
-        model.addAttribute("bramki3rurowe", new Bramki3rurowe());
-        model.addAttribute("bramki2rurowe", new Bramki2rurowe());
-        model.addAttribute("bramkiOneWay", new BramkiOneWay());
-        model.addAttribute("wygrodzeniaRuroweStale", new WygrodzeniaRuroweStale());
-        return "wygrodzeniaIbramki";
-    }
+//    @GetMapping("/wygrodzeniaIbramki")
+//    public String showWygrodzeniaIbramki(Model model){
+//        model.addAttribute("bramki3rurowe", new Bramki3rurowe());
+//        model.addAttribute("bramki2rurowe", new Bramki2rurowe());
+//        model.addAttribute("bramkiOneWay", new BramkiOneWay());
+//        model.addAttribute("wygrodzeniaRuroweStale", new WygrodzeniaRuroweStale());
+//        return "wygrodzeniaIbramki";
+//    }
 
     @PostMapping("/submitBramki3rurowe")
     public String submitBramki3rurowe(@ModelAttribute("bramki3rurowe") Bramki3rurowe bramki3rurowe, BindingResult bindingResult) {

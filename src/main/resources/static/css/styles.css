@@ -1,0 +1,111 @@
+ body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+body{
+  background-image: url('https://media.istockphoto.com/id/519861662/pl/zdj%C4%99cie/kr%C3%B3w-na-zielony-%C5%82%C4%85ka.jpg?s=612x612&w=0&k=20&c=xYcVWDY4tHBBWfjD1Kk_ad4N_etnh6_JrpktlgV4QIU='); /* URL do przykładowego obrazu online */
+  background-size: cover;
+  background-position: center;
+
+}
+
+header {
+  width: 100%;
+  background-color: #0303B8; /* kolor nagłówka */
+  color: white;
+  text-align: center;
+  line-height: 50px; /* wyśrodkowanie tekstu */
+}
+
+.content {
+  width: 100%;
+  height: calc(100% - 50px); /* wysokość całej strony minus wysokość nagłówka */
+  color: black;
+  text-align: center;
+}
+ .menu-item {
+   display: inline-block;
+   margin: 0 7px; /* Zwiększenie marginesu między przyciskami */
+   transition: color 0.3s ease;
+         cursor: pointer;
+
+ }
+ .menu-item:hover {
+   color: #ffcc00; /* Kolor tekstu po najechaniu myszką */
+ }
+ form {
+ width: 800px;
+ background-color: white;
+ opacity: 80%;
+ margin: 0 auto;
+ padding-bottom: 25px;
+ padding-top: 1px;
+ position: relative; /* or absolute, depending on your layout needs */
+ top: 20px; /* Adjust the value as needed */
+}
+input[type="text"],
+input[type="number"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+label {
+    font-weight: bold;
+    line-height: 140%;
+}
+input[type="submit"] {
+    background-color: #0303B8;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0500B2; /* Kolor tła stopki */
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    footer button {
+      color: white; /* Kolor tekstu guzika */
+      background-color: #0303B8; /* Kolor tła guzika */
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation: pulse 2s infinite alternate; /* Dodanie animacji pulsacji */
+      transition: color 0.3s; /* Dodanie płynnej zmiany koloru tekstu */
+    }
+    footer button:hover {
+      color: #15ef61; /* Zmiana koloru tekstu po najechaniu kursorem */
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    .menumenu {
+        overflow: hidden;
+        transition: height 0.4s ease; /* animacja wysokości */
+        height: 0; /* początkowa wysokość - ukrycie */
+      }
+    .hidden{
+    display: none;
+    }
